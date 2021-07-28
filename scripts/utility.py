@@ -29,3 +29,12 @@ def percent_missing_for_col(df: pd.DataFrame, col_name: str) -> float:
         return 0.0
     missing_count = df[col_name].isnull().sum()
     return round((missing_count / total_count) * 100, 2)
+
+def every_column_percent_missing(df):
+    percent_missing = df.isnull().sum() * 100 / len(df)
+    missing_value_db = pd.DataFrame({'column_name': df.columns,
+                                     'percent_missing': percent_missing})
+
+    missing_value_db.sort_values('percent_missing', inplace=True)
+
+    return(missing_value_db)
