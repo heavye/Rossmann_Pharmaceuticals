@@ -132,7 +132,22 @@ class MyCleaner:
 
         return df
 
-    
+    #Treating the outliers 
+    # a function for replacing outliers with the median, used when there's too many outliers in a feature
+    def replace_outlier_with_median(dataFrame, feature):
+        Q1 = dataFrame[feature].quantile(0.25)
+        Q3 = dataFrame[feature].quantile(0.75)
+        median = dataFrame[feature].quantile(0.50)
+
+        IQR = Q3 - Q1
+
+        upper_whisker = Q3 + (1.5 * IQR)
+        lower_whisker = Q1 - (1.5 * IQR)
+
+        dataFrame[feature] = np.where(dataFrame[feature] > upper_whisker, median, dataFrame[feature])
+        dataFrame[feature] = np.where(dataFrame[feature] < lower_whisker, median, dataFrame[feature])
+        return 
+        
     def __drop_columns(self, df, columns=[]):
 
         return df.drop(columns, axis=1)
