@@ -4,7 +4,7 @@ Rossmann operates over 3,000 drug stores in 7 European countries. Currently, Ros
 
 This project builds an end-to-end product that delivers the predictions and serves it on web application dashboard. 
 
-### The deployed web application dashboard can be found ...
+### The deployed web application dashboard can be found [here](https://rossmann-pharmaceuticals.herokuapp.com/)
 
 ### The data and feature description for this challenge can be found [here](https://www.kaggle.com/c/rossmann-store-sales/data).
 
